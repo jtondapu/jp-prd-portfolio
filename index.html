@@ -254,11 +254,7 @@ const D = {
     greeting:     "Hey there,",
     headline:     "I'm Jaya Prakash Tondapu",
     subheadline:  "Senior Product Manager",
-    description:  [
-      "Driving product strategy and execution across grocery, retail, and e-commerce.",
-      "Specialized in customer identity, loyalty, personalization, and cross-functional platform initiatives.",
-      "Currently focused on AI-powered product development and open to Senior PM opportunities.",
-    ],
+    description:  "Driving product strategy and execution across grocery, retail, and e-commerce. Specialized in customer identity, loyalty, personalization, and cross-functional platform initiatives. Currently focused on AI-powered product development and open to Senior PM opportunities",
     profileImage: "profile.jpg",   // ← add profile.jpg next to index.html, or use "" for placeholder
     badgeText:    "✦ Open to Opportunities",
     stats: [
@@ -267,7 +263,7 @@ const D = {
     ],
     ctaLabel:     "Let's Connect →",
     ctaHref:      "https://www.linkedin.com/in/jptondapu",
-    resumeLabel:  "Download Resume"
+    //resumeLabel:  "Download Resume"
     //resumeHref:   "resume.pdf",
   },
 
@@ -300,6 +296,7 @@ const D = {
       role:     "Senior Product Manager (Contract)",
       location: "San Francisco Bay Area (Hybrid)",
       period:   "2018 – Present",
+      logo:     "albertsons-logo.png", // Added logo field
       bullets: [
         "Led customer identity platform initiatives including account merging, dietary preference unification, and social sign-in, omni channel and cross branner features across 20+ banners serving 30M+ loyalty members.",
         "Drove A/B testing programs for onboarding and profile features; improved account-creation conversion by 18% through iterative experimentation.",
@@ -313,11 +310,12 @@ const D = {
       role:     "Technical Program Manager",
       location: "San Francisco Bay Area",
       period:   "2008 – 2018",
+      logo:     "gap-logo.png", // Added logo field
       bullets: [
         "Directed a cross-functional team of 15 engineers and product specialists to deliver Order Management System (OMS) and Next Day Delivery, driving an 18% reduction in fulfillment time and establishing scalable solutions",
-        "SpecialiSpearheaded the Inventory and Capacity Management System (ICM) revamp, Returns/exchange processing achieving a 35% improvement in inventory accuracy and enabling order fulfillment with a multi-DC modelzed in customer identity, loyalty programs, personalization engines, and fulfillment platforms.",
-        "Led cross-functional teams of 10–20 across engineering, desiManaged the MiniQ project by developing comprehensive project plans, including scope, objectives, and milestones, while optimizing resource allocation to resolve critical defects on schedulegn, data science, and operations.",
-        "Consistently deliveLed the Athleta stores setup and Reviews Platform upgrade, enhancing physical store integration and increasing product sales by 22% through improved user sentiment analysisred products that improved NPS, retention, and revenue metrics.",
+        "Spearheaded the Inventory and Capacity Management System (ICM) revamp, Returns/exchange processing achieving a 35% improvement in inventory accuracy and enabling order fulfillment with a multi-DC model",
+        "Managed the MiniQ project by developing comprehensive project plans, including scope, objectives, and milestones, while optimizing resource allocation to resolve critical defects on schedule",
+        "Led the Athleta stores setup and Reviews Platform upgrade, enhancing physical store integration and increasing product sales by 22% through improved user sentiment analysis",
         "Managed the technical delivery of Japan E-commerce and Gap Outlet Stores websites, ensuring integrated key & poll, enabling global market expansion and a 15% increase in digital revenue through innovation frameworks"
       ],
     },
@@ -367,8 +365,8 @@ const D = {
 
   /* ── TESTIMONIAL ── */
   testimonial: {
-    // quote:  "Jay has a rare ability to bridge complex technical architecture with clear customer value. His work on our identity platform directly moved the needle on loyalty sign-ups and retention — a true cross-functional leader.",
-    // author: "Colleague, Albertsons Companies",
+    quote:  "JP has a very deep knowledge of all the aspects of eCommerce products (from the logical inventory to OMS, Pricing etc) and was an indispensable part of the program team. He was always willing to jump in as part of the team, whether it be to fix a problem or to determine a root cause. His problem solving capabilities are unmatched.",
+    author: "Olga Rolf, Gap Inc",
   },
 
   /* ── CONTACT ── */
@@ -387,7 +385,7 @@ const D = {
   ],
 
   /* ── FOOTER ── */
-  footer: { copyright: "© 2025 Jaya Prakash Tondapu. All rights reserved." },
+  footer: { copyright: "© 2025 Jaya Prakash Tondapu. All rights reserved. Any trademarks referenced herein are the property of their respective owner(s)." },
 };
 
 /* ============================================================
@@ -573,6 +571,10 @@ function buildFooter(){
   logo.innerHTML=parts.slice(0,-1).join(' ')+' <span>'+parts[parts.length-1]+'.</span>';
   const copy=mk('p','footer-copy',D.footer.copyright);
   wrap.append(logo,copy,socialLinks());
+  const etsyLink = mk('a', 'footer-link', 'Etsy');
+  etsyLink.href = 'https://www.etsy.com/shop/JPKOriginals';
+  etsyLink.target = '_blank';
+  wrap.append(etsyLink);
 }
 
 function initReveal(){
