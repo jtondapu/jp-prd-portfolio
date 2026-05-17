@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Senior Product Manager with 15+ years in grocery, retail, and e-commerce."/>
+<title>Jay Mehta — Senior Product Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   EDIT CONTENT IN THE <script id="portfolio-data"> BELOW
+   EDIT COLORS/FONTS HERE IN :root
+   ============================================================ */
+:root {
+  --bg:           #0a0a0a;
+  --bg-card:      #111111;
+  --bg-card-alt:  #161616;
+  --border:       rgba(255,255,255,0.08);
+  --border-hover: rgba(255,255,255,0.22);
+  --accent:       #c8f135;
+  --accent-dim:   rgba(200,241,53,0.12);
+  --text-primary: #f0f0f0;
+  --text-secondary:#8a8a8a;
+  --text-muted:   #484848;
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --radius:       12px;
+  --radius-lg:    20px;
+  --ease:         cubic-bezier(.4,0,.2,1);
+  --max-w:        1180px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text-primary);font-family:var(--font-body);font-weight:300;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+/* noise */
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+
+.container{max-width:var(--max-w);margin:0 auto;padding:0 2rem}
+section{position:relative;z-index:1}
+
+/* typography helpers */
+.section-label{font-family:var(--font-display);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:block}
+.section-heading{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:700;line-height:1.15;color:var(--text-primary);margin-bottom:1.5rem}
+.section-heading em{font-style:italic;color:var(--accent)}
+
+/* ── NAV ── */
+#nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 0;transition:background .3s var(--ease),border-color .3s var(--ease)}
+#nav.scrolled{background:rgba(10,10,10,.92);border-bottom:1px solid var(--border);backdrop-filter:blur(12px)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--font-display);font-weight:700;font-size:1.1rem;letter-spacing:-.02em}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2.25rem}
+.nav-links a{font-size:.85rem;color:var(--text-secondary);transition:color .25s}
+.nav-links a:hover{color:var(--text-primary)}
+.nav-cta{background:var(--accent);color:#0a0a0a!important;font-family:var(--font-display);font-weight:700;font-size:.78rem;padding:.5rem 1.2rem;border-radius:100px;transition:opacity .25s,transform .25s!important}
+.nav-cta:hover{opacity:.85;transform:translateY(-1px)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--text-primary);border-radius:2px;transition:.3s}
+#nav-mobile{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,10,10,.97);backdrop-filter:blur(16px);border-top:1px solid var(--border)}
+#nav-mobile.open{display:block}
+#nav-mobile a{display:block;padding:.85rem 2rem;font-size:.95rem;color:var(--text-secondary);border-bottom:1px solid var(--border);transition:color .2s}
+#nav-mobile a:last-child{border:none}
+#nav-mobile a:hover{color:var(--accent)}
+
+/* ── HERO ── */
+#hero{min-height:100vh;display:flex;align-items:center;padding:7rem 0 5rem;overflow:hidden}
+.hero-inner{display:grid;grid-template-columns:1fr 400px;gap:4rem;align-items:center}
+.hero-tag{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent-dim);border:1px solid rgba(200,241,53,.25);border-radius:100px;padding:.35rem 1rem;font-size:.72rem;color:var(--accent);letter-spacing:.05em;margin-bottom:1.5rem}
+.hero-tag::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%}
+.hero-greeting{font-family:var(--font-display);font-size:1rem;color:var(--text-secondary);margin-bottom:.2rem}
+.hero-title{font-family:var(--font-display);font-size:clamp(3.2rem,6.5vw,5.5rem);font-weight:800;line-height:1.0;letter-spacing:-.03em;color:var(--text-primary);margin-bottom:.5rem}
+.hero-title .accent{color:var(--accent)}
+.hero-subtitle{font-family:var(--font-display);font-size:clamp(1.1rem,2vw,1.6rem);font-weight:500;color:var(--text-secondary);margin-bottom:1.5rem;letter-spacing:-.01em}
+.hero-desc{font-size:.97rem;color:var(--text-secondary);max-width:500px;line-height:1.75;margin-bottom:2.5rem}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:.4rem;background:var(--accent);color:#0a0a0a;font-family:var(--font-display);font-weight:700;font-size:.9rem;padding:.85rem 2rem;border-radius:100px;transition:opacity .25s,transform .25s}
+.btn-primary:hover{opacity:.85;transform:translateY(-2px)}
+.btn-outline{display:inline-flex;align-items:center;gap:.4rem;background:transparent;color:var(--text-primary);font-family:var(--font-display);font-weight:600;font-size:.9rem;padding:.85rem 2rem;border-radius:100px;border:1px solid var(--border-hover);transition:border-color .25s,color .25s,transform .25s}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:2.5rem;margin-top:3rem;padding-top:2.5rem;border-top:1px solid var(--border)}
+.hero-stat-value{font-family:var(--font-display);font-size:2.4rem;font-weight:800;color:var(--text-primary);line-height:1}
+.hero-stat-label{font-size:.72rem;color:var(--text-muted);white-space:pre-line;margin-top:.3rem;letter-spacing:.04em;text-transform:uppercase}
+.hero-image-wrap{position:relative;display:flex;justify-content:center}
+.hero-image-glow{position:absolute;inset:-40px;background:radial-gradient(circle at 50% 40%,rgba(200,241,53,.13) 0%,transparent 68%);border-radius:50%;pointer-events:none}
+.hero-image-frame{position:relative;width:360px;height:400px;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);background:var(--bg-card)}
+.hero-image-frame img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .6s ease}
+.hero-image-frame:hover img{transform:scale(1.03)}
+.hero-image-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1e1e1e,#111);font-size:6rem;color:var(--text-muted)}
+.hero-image-badge{position:absolute;bottom:1.25rem;left:50%;transform:translateX(-50%);background:rgba(10,10,10,.88);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:100px;padding:.45rem 1.1rem;font-family:var(--font-display);font-size:.72rem;font-weight:600;color:var(--accent);white-space:nowrap}
+
+/* ── ABOUT ── */
+#about{padding:7rem 0;border-top:1px solid var(--border)}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.about-body{display:flex;flex-direction:column;gap:1.1rem}
+.about-body p{color:var(--text-secondary);line-height:1.8;font-size:.96rem}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem}
+.about-stat{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem;transition:border-color .25s}
+.about-stat:hover{border-color:var(--border-hover)}
+.about-stat-value{font-family:var(--font-display);font-size:1.7rem;font-weight:800;color:var(--accent);line-height:1}
+.about-stat-label{font-size:.68rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-top:.3rem}
+.expertise-heading{font-family:var(--font-display);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.25rem}
+.expertise-pills{display:flex;flex-wrap:wrap;gap:.55rem}
+.pill{background:var(--bg-card);border:1px solid var(--border);border-radius:100px;padding:.4rem 1rem;font-size:.78rem;color:var(--text-secondary);transition:border-color .25s,color .25s;cursor:default}
+.pill:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ── EXPERIENCE ── */
+#experience{padding:7rem 0;border-top:1px solid var(--border)}
+.experience-list{display:flex;flex-direction:column;gap:1.25rem;margin-top:3rem}
+.exp-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem 2.25rem;transition:border-color .25s,transform .25s;cursor:pointer}
+.exp-card:hover{border-color:var(--border-hover);transform:translateY(-2px)}
+.exp-card.open{border-color:rgba(200,241,53,.3)}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.exp-company{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--text-primary);margin-bottom:.25rem}
+.exp-role{font-size:.88rem;color:var(--accent);font-weight:500;margin-bottom:.4rem}
+.exp-info{font-size:.75rem;color:var(--text-muted);display:flex;gap:1.25rem;flex-wrap:wrap}
+.exp-toggle{width:34px;height:34px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--text-secondary);font-size:1.3rem;transition:border-color .25s,background .25s,transform .3s;user-select:none}
+.exp-card.open .exp-toggle{background:var(--accent-dim);border-color:var(--accent);color:var(--accent);transform:rotate(45deg)}
+.exp-bullets{display:none;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.exp-card.open .exp-bullets{display:block}
+.exp-bullets ul{display:flex;flex-direction:column;gap:.7rem}
+.exp-bullets li{font-size:.88rem;color:var(--text-secondary);line-height:1.7;padding-left:1.2rem;position:relative}
+.exp-bullets li::before{content:'';position:absolute;left:0;top:.65em;width:5px;height:5px;background:var(--accent);border-radius:50%}
+
+/* ── PROJECTS ── */
+#projects{padding:7rem 0;border-top:1px solid var(--border)}
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:3rem}
+.project-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem;display:flex;flex-direction:column;gap:.9rem;transition:border-color .25s,transform .25s}
+.project-card:hover{border-color:var(--border-hover);transform:translateY(-3px)}
+.project-tags{display:flex;flex-wrap:wrap;gap:.45rem}
+.project-tag{background:var(--accent-dim);color:var(--accent);font-size:.68rem;font-weight:600;letter-spacing:.04em;padding:.22rem .7rem;border-radius:100px;border:1px solid rgba(200,241,53,.2)}
+.project-title{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--text-primary);line-height:1.3}
+.project-desc{font-size:.86rem;color:var(--text-secondary);line-height:1.72;flex:1}
+.project-link{display:inline-flex;align-items:center;gap:.3rem;font-family:var(--font-display);font-size:.75rem;font-weight:700;color:var(--accent);letter-spacing:.04em;margin-top:.4rem;transition:gap .2s}
+.project-link::after{content:'→'}
+.project-link:hover{gap:.55rem}
+
+/* ── SKILLS ── */
+#skills{padding:7rem 0;border-top:1px solid var(--border)}
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:3rem}
+.skill-category{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.6rem;transition:border-color .25s}
+.skill-category:hover{border-color:var(--border-hover)}
+.skill-cat-label{font-family:var(--font-display);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1.1rem;display:block}
+.skill-items{display:flex;flex-direction:column;gap:.55rem}
+.skill-item{font-size:.84rem;color:var(--text-secondary);display:flex;align-items:center;gap:.45rem;transition:color .2s}
+.skill-item::before{content:'';width:4px;height:4px;background:var(--border-hover);border-radius:50%;flex-shrink:0;transition:background .2s}
+.skill-category:hover .skill-item{color:var(--text-primary)}
+.skill-category:hover .skill-item::before{background:var(--accent)}
+
+/* ── TESTIMONIAL ── */
+#testimonial{padding:6rem 0;border-top:1px solid var(--border)}
+.testimonial-inner{max-width:760px;margin:0 auto;text-align:center}
+.testimonial-mark{font-family:var(--font-display);font-size:5rem;line-height:.4;color:var(--accent);margin-bottom:1.5rem;display:block}
+.testimonial-text{font-family:var(--font-display);font-size:clamp(1.05rem,2vw,1.35rem);font-style:italic;color:var(--text-primary);line-height:1.65;margin-bottom:1.5rem}
+.testimonial-author{font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em}
+
+/* ── CONTACT ── */
+#contact{padding:8rem 0;border-top:1px solid var(--border);text-align:center}
+.contact-inner{max-width:600px;margin:0 auto}
+.contact-heading{font-family:var(--font-display);font-size:clamp(2.1rem,4.5vw,3.5rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:1rem}
+.contact-heading em{font-style:italic;color:var(--accent)}
+.contact-sub{font-size:.97rem;color:var(--text-secondary);margin-bottom:2.5rem;line-height:1.7}
+.contact-actions{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap}
+.social-links{display:flex;align-items:center;justify-content:center;gap:.9rem;margin-top:2.5rem}
+.social-link{width:42px;height:42px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:border-color .25s,color .25s,transform .25s}
+.social-link:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.social-link svg{width:17px;height:17px;fill:currentColor}
+
+/* ── FOOTER ── */
+footer{padding:1.75rem 0;border-top:1px solid var(--border);position:relative;z-index:1}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.footer-logo{font-family:var(--font-display);font-weight:700;font-size:.9rem}
+.footer-logo span{color:var(--accent)}
+.footer-copy{font-size:.75rem;color:var(--text-muted)}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* ── CURSOR ── */
+.cursor-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s,width .2s,height .2s}
+.cursor-ring{width:34px;height:34px;border:1.5px solid rgba(200,241,53,.4);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .12s,width .25s,height .25s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){.skills-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:860px){
+  .hero-inner{grid-template-columns:1fr;gap:2.5rem}
+  .hero-image-wrap{order:-1}
+  .hero-image-frame{width:240px;height:260px;margin:0 auto}
+  .about-inner{grid-template-columns:1fr;gap:2.5rem}
+  .projects-grid{grid-template-columns:1fr}
+  .nav-links,.nav-cta{display:none}
+  .nav-hamburger{display:flex}
+}
+@media(max-width:600px){
+  .container{padding:0 1.2rem}
+  .about-stats{grid-template-columns:repeat(3,1fr)}
+  .skills-grid{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column;text-align:center}
+  .cursor-dot,.cursor-ring{display:none}
+}
+</style>
+</head>
+<body>
+
+<header id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#hero" id="nav-logo-el"></a>
+      <nav class="nav-links" id="nav-links-el"></nav>
+      <a class="nav-cta" id="nav-cta-el" target="_blank"></a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div id="nav-mobile"></div>
+  </div>
+</header>
+
+<section id="hero"><div class="container"><div class="hero-inner" id="hero-inner"></div></div></section>
+<section id="about"><div class="container"><div class="about-inner" id="about-inner"></div></div></section>
+<section id="experience"><div class="container" id="exp-container"></div></section>
+<section id="projects"><div class="container" id="proj-container"></div></section>
+<section id="skills"><div class="container" id="skills-container"></div></section>
+<section id="testimonial"><div class="container"><div class="testimonial-inner reveal" id="testimonial-inner"></div></div></section>
+<section id="contact"><div class="container"><div class="contact-inner" id="contact-inner"></div></div></section>
+<footer><div class="container"><div class="footer-inner" id="footer-inner"></div></div></footer>
+
+<!-- ============================================================
+     ✏️  EDIT YOUR PORTFOLIO CONTENT BELOW
+     ============================================================ -->
+<script>
+const D = {
+
+  /* ── IDENTITY ── */
+  name: "Jay Mehta",
+  navLinks: [
+    { label: "About",      href: "#about"      },
+    { label: "Experience", href: "#experience" },
+    { label: "Projects",   href: "#projects"   },
+    { label: "Skills",     href: "#skills"     },
+    { label: "Contact",    href: "#contact"    },
+  ],
+  ctaButton: { label: "Let's Connect →", href: "https://www.linkedin.com/in/jaymehta" },
+
+  /* ── HERO ── */
+  hero: {
+    greeting:     "Hey there,",
+    headline:     "I'm Jay Mehta",
+    subheadline:  "Senior Product Manager",
+    description:  "15+ years shaping customer identity, loyalty & personalization at scale — turning complex data into products people love.",
+    profileImage: "profile.jpg",   // ← add profile.jpg next to index.html, or use "" for placeholder
+    badgeText:    "✦ Open to Opportunities",
+    stats: [
+      { value: "15+", label: "Years of\nImpact"       },
+      { value: "50M+", label: "Customers\nImpacted"   },
+    ],
+    ctaLabel:     "Let's Connect →",
+    ctaHref:      "https://www.linkedin.com/in/jaymehta",
+    resumeLabel:  "Download Resume",
+    resumeHref:   "resume.pdf",
+  },
+
+  /* ── ABOUT ── */
+  about: {
+    body: [
+      "With 15+ years of product management experience across grocery, retail, and e-commerce, I specialize in customer identity, loyalty, personalization, and cross-functional platform initiatives.",
+      "At Albertsons I led initiatives spanning account merging, dietary preference unification, social sign-in, and cross-banner feature launches — directly impacting millions of customers. I thrive at the intersection of data, UX, and business strategy.",
+      "I'm currently exploring Senior PM roles while building consulting and content-creation income streams focused on AI-powered product development.",
+    ],
+    stats: [
+      { value: "15+",   label: "Years Experience"   },
+      { value: "50M+",  label: "Customers Impacted" },
+      { value: "100%",  label: "Delivery Focus"     },
+    ],
+    expertise: [
+      "Customer Identity & Loyalty", "Roadmap Development", "A/B Testing & Experimentation",
+      "Data-Driven Decision Making",  "Cross-Functional Leadership", "Agile / SAFe",
+      "Personalization at Scale",     "Stakeholder Management",      "Product Strategy",
+      "UX/UI Collaboration",          "Go-to-Market Strategy",       "AI / ML Products",
+    ],
+  },
+
+  /* ── WORK EXPERIENCE ── */
+  experience: [
+    {
+      company:  "Albertsons Companies",
+      role:     "Senior Product Manager (Contract)",
+      location: "San Francisco Bay Area (Hybrid)",
+      period:   "2022 – Present",
+      bullets: [
+        "Led customer identity platform initiatives including account merging, dietary preference unification, and social sign-in across 20+ banners serving 30M+ loyalty members.",
+        "Drove A/B testing programs for onboarding and profile features; improved account-creation conversion by 18% through iterative experimentation.",
+        "Proposed and championed phone-number-optional registration flow, removing a key friction point projected to reduce drop-off by 22%.",
+        "Managed cross-banner feature launches with engineering, design, analytics, and legal stakeholders using SAFe Agile; consistently delivered on schedule.",
+        "Resolved critical production bug affecting gifting address workflows within 48 hours, protecting checkout experience for 500K+ weekly transactions.",
+      ],
+    },
+    {
+      company:  "Previous Retail & E-Commerce Roles",
+      role:     "Senior / Lead Product Manager",
+      location: "Various",
+      period:   "2008 – 2022",
+      bullets: [
+        "15+ years of progressive PM experience across grocery, retail, and e-commerce verticals.",
+        "Specialized in customer identity, loyalty programs, personalization engines, and fulfillment platforms.",
+        "Led cross-functional teams of 10–20 across engineering, design, data science, and operations.",
+        "Consistently delivered products that improved NPS, retention, and revenue metrics.",
+      ],
+    },
+  ],
+
+  /* ── SIDE PROJECTS ── */
+  projects: [
+    {
+      title:       "AI Job Search Automation",
+      tags:        ["n8n", "Apify", "Gemini AI", "Supabase", "Gmail"],
+      description: "Built an end-to-end n8n workflow integrating Apify scrapers, Google Drive, Gemini AI, and Supabase to automate daily job search tasks — from scraping listings to drafting personalized outreach emails.",
+      link:        "https://www.linkedin.com/in/jaymehta",
+      linkLabel:   "View on LinkedIn",
+    },
+    {
+      title:       "Khet Se — Organic Farmer Web App",
+      tags:        ["Product Strategy", "Web App", "Agri-tech", "India"],
+      description: "Designed and prototyped a D2C platform connecting Indian organic farmers directly with urban consumers, addressing cold-chain logistics and trust gaps in the organic food market.",
+      link:        "#",
+      linkLabel:   "View Prototype",
+    },
+    {
+      title:       "Little Melody Lane",
+      tags:        ["EdTech", "YouTube", "Kids Content", "Content Strategy"],
+      description: "Founded a kids' educational YouTube channel focused on music-based learning for children aged 3–8. Developing content strategy, brand identity, and audience-growth playbook.",
+      link:        "#",
+      linkLabel:   "View Channel",
+    },
+    {
+      title:       "PM Interview Prep System",
+      tags:        ["Notion", "AI", "SCOT Framework", "Coaching"],
+      description: "Built a structured SCOT-format behavioral story bank and 30-day interview prep system, being productized into coaching offerings for aspiring Senior PMs in retail/e-commerce.",
+      link:        "#",
+      linkLabel:   "Learn More",
+    },
+  ],
+
+  /* ── SKILLS ── */
+  skills: {
+    categories: [
+      { label: "Product",              items: ["Product Strategy","Roadmapping","OKRs / KPIs","A/B Testing","Agile / SAFe","RICE Prioritization"] },
+      { label: "Data & Analytics",     items: ["BigQuery","SQL","Amplitude","Adobe Analytics","Mixpanel","Power BI"] },
+      { label: "Platforms & AI",       items: ["Snowflake","Supabase","Okta / Azure AD","n8n","Apify","LangChain"] },
+      { label: "Design & Collab",      items: ["Figma","Jira","Confluence","Notion","Miro","ProductBoard"] },
+    ],
+  },
+
+  /* ── TESTIMONIAL ── */
+  testimonial: {
+    quote:  "Jay has a rare ability to bridge complex technical architecture with clear customer value. His work on our identity platform directly moved the needle on loyalty sign-ups and retention — a true cross-functional leader.",
+    author: "Colleague, Albertsons Companies",
+  },
+
+  /* ── CONTACT ── */
+  contact: {
+    heading:    "Let's make something amazing together",
+    subheading: "Open to Senior PM roles, fractional consulting, and speaking opportunities.",
+    ctaLabel:   "Connect on LinkedIn",
+    ctaHref:    "https://www.linkedin.com/in/jaymehta",
+    email:      "jay@example.com",
+  },
+
+  /* ── SOCIAL ── */
+  social: [
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/jaymehta", icon: "linkedin" },
+    { label: "GitHub",   href: "https://github.com/yourusername",       icon: "github"   },
+  ],
+
+  /* ── FOOTER ── */
+  footer: { copyright: "© 2025 Jay Mehta. All rights reserved." },
+};
+
+/* ============================================================
+   RENDERER — no need to edit below this line
+   ============================================================ */
+const ICONS = {
+  linkedin: `<svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>`,
+  github:   `<svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>`,
+};
+
+function mk(tag,cls,html){const e=document.createElement(tag);if(cls)e.className=cls;if(html!==undefined)e.innerHTML=html;return e;}
+function socialLinks(){
+  const w=mk('div','social-links');
+  D.social.forEach(s=>{const a=mk('a','social-link');a.href=s.href;a.target='_blank';a.setAttribute('aria-label',s.label);a.innerHTML=ICONS[s.icon]||s.label;w.append(a);});
+  return w;
+}
+
+function buildNav(){
+  const parts=D.name.split(' ');
+  const logo=document.getElementById('nav-logo-el');
+  logo.innerHTML=parts.slice(0,-1).join(' ')+' <span>'+parts[parts.length-1]+'.</span>';
+
+  const linksEl=document.getElementById('nav-links-el');
+  D.navLinks.forEach(lk=>{const a=mk('a','',lk.label);a.href=lk.href;linksEl.append(a);});
+
+  const ctaEl=document.getElementById('nav-cta-el');
+  ctaEl.textContent=D.ctaButton.label;ctaEl.href=D.ctaButton.href;
+
+  const mob=document.getElementById('nav-mobile');
+  D.navLinks.forEach(lk=>{const a=mk('a','',lk.label);a.href=lk.href;a.addEventListener('click',()=>mob.classList.remove('open'));mob.append(a);});
+
+  document.getElementById('hamburger').addEventListener('click',()=>mob.classList.toggle('open'));
+  window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>40),{passive:true});
+}
+
+function buildHero(){
+  const h=D.hero;
+  const wrap=document.getElementById('hero-inner');
+
+  // left
+  const left=mk('div','hero-left');
+  left.innerHTML=`
+    <div class="hero-tag">✦ Senior Product Manager</div>
+    <p class="hero-greeting">${h.greeting}</p>
+    <h1 class="hero-title">${h.headline.replace(/(\S+)$/,'<span class="accent">$1</span>')}</h1>
+    <p class="hero-subtitle">${h.subheadline}</p>
+    <p class="hero-desc">${h.description}</p>
+  `;
+  const actions=mk('div','hero-actions');
+  const b1=mk('a','btn-primary',h.ctaLabel);b1.href=h.ctaHref;b1.target='_blank';
+  const b2=mk('a','btn-outline',h.resumeLabel);b2.href=h.resumeHref;
+  actions.append(b1,b2);
+
+  const stats=mk('div','hero-stats');
+  h.stats.forEach(s=>stats.innerHTML+=`<div class="hero-stat"><div class="hero-stat-value">${s.value}</div><div class="hero-stat-label">${s.label}</div></div>`);
+
+  left.append(actions,stats);
+
+  // right — image
+  const right=mk('div','hero-image-wrap');
+  const glow=mk('div','hero-image-glow');
+  const frame=mk('div','hero-image-frame');
+
+  if(h.profileImage){
+    const img=mk('img');
+    img.src=h.profileImage;
+    img.alt=D.name+' profile photo';
+    img.onerror=()=>{frame.innerHTML='<div class="hero-image-placeholder">👤</div>';};
+    frame.append(img);
+  } else {
+    frame.innerHTML='<div class="hero-image-placeholder">👤</div>';
+  }
+  const badge=mk('div','hero-image-badge',h.badgeText);
+  frame.append(badge);
+  right.append(glow,frame);
+
+  wrap.append(left,right);
+}
+
+function buildAbout(){
+  const ab=D.about;
+  const wrap=document.getElementById('about-inner');
+
+  const left=mk('div');
+  left.innerHTML=`<span class="section-label reveal">ABOUT ME</span>`;
+  const heading=mk('h2','section-heading reveal d1');
+  heading.innerHTML='What do I <em>bring?</em>';
+  const body=mk('div','about-body reveal d2');
+  ab.body.forEach(p=>body.append(mk('p','',p)));
+  const stats=mk('div','about-stats reveal d3');
+  ab.stats.forEach(s=>stats.innerHTML+=`<div class="about-stat"><div class="about-stat-value">${s.value}</div><div class="about-stat-label">${s.label}</div></div>`);
+  left.append(heading,body,stats);
+
+  const right=mk('div','reveal d2');
+  const elbl=mk('p','expertise-heading','Core Expertise');
+  const pills=mk('div','expertise-pills');
+  ab.expertise.forEach(e=>pills.append(mk('span','pill',e)));
+  right.append(elbl,pills);
+
+  wrap.append(left,right);
+}
+
+function buildExperience(){
+  const wrap=document.getElementById('exp-container');
+  const lbl=mk('span','section-label reveal','EXPERIENCE');
+  const hdg=mk('h2','section-heading reveal d1');hdg.innerHTML='My work <em>experience</em>';
+  const list=mk('div','experience-list');
+
+  D.experience.forEach((exp,i)=>{
+    const card=mk('div','exp-card reveal');card.style.transitionDelay=(i*.1)+'s';
+    const hdr=mk('div','exp-header');
+    const meta=mk('div','exp-meta');
+    meta.innerHTML=`<div class="exp-company">${exp.company}</div><div class="exp-role">${exp.role}</div><div class="exp-info"><span>📍 ${exp.location}</span><span>📅 ${exp.period}</span></div>`;
+    const tog=mk('div','exp-toggle','+');
+    hdr.append(meta,tog);
+    const buls=mk('div','exp-bullets');
+    const ul=mk('ul');
+    exp.bullets.forEach(b=>ul.append(mk('li','',b)));
+    buls.append(ul);
+    card.append(hdr,buls);
+    card.addEventListener('click',()=>{const o=card.classList.contains('open');document.querySelectorAll('.exp-card').forEach(c=>c.classList.remove('open'));if(!o)card.classList.add('open');});
+    list.append(card);
+  });
+  wrap.append(lbl,hdg,list);
+}
+
+function buildProjects(){
+  const wrap=document.getElementById('proj-container');
+  const lbl=mk('span','section-label reveal','SIDE PROJECTS');
+  const hdg=mk('h2','section-heading reveal d1');hdg.innerHTML='Things I\'ve <em>built</em>';
+  const grid=mk('div','projects-grid');
+
+  D.projects.forEach((p,i)=>{
+    const card=mk('div','project-card reveal');card.style.transitionDelay=(i*.08)+'s';
+    const tags=mk('div','project-tags');p.tags.forEach(t=>tags.append(mk('span','project-tag',t)));
+    const lnk=mk('a','project-link',p.linkLabel);lnk.href=p.link;if(p.link!=='#')lnk.target='_blank';
+    card.append(tags,mk('h3','project-title',p.title),mk('p','project-desc',p.description),lnk);
+    grid.append(card);
+  });
+  wrap.append(lbl,hdg,grid);
+}
+
+function buildSkills(){
+  const wrap=document.getElementById('skills-container');
+  const lbl=mk('span','section-label reveal','EXPERTISE');
+  const hdg=mk('h2','section-heading reveal d1');hdg.innerHTML='Skills & <em>Tools</em>';
+  const grid=mk('div','skills-grid');
+
+  D.skills.categories.forEach((cat,i)=>{
+    const card=mk('div','skill-category reveal');card.style.transitionDelay=(i*.1)+'s';
+    const catLbl=mk('span','skill-cat-label',cat.label);
+    const items=mk('div','skill-items');
+    cat.items.forEach(it=>items.append(mk('div','skill-item',it)));
+    card.append(catLbl,items);grid.append(card);
+  });
+  wrap.append(lbl,hdg,grid);
+}
+
+function buildTestimonial(){
+  const t=D.testimonial;
+  document.getElementById('testimonial-inner').innerHTML=`<span class="testimonial-mark">"</span><p class="testimonial-text">${t.quote}</p><p class="testimonial-author">— ${t.author}</p>`;
+}
+
+function buildContact(){
+  const c=D.contact;
+  const wrap=document.getElementById('contact-inner');
+  const hdg=mk('h2','contact-heading reveal');
+  const words=c.heading.split(' ');const last2=words.splice(-2).join(' ');
+  hdg.innerHTML=words.join(' ')+' <em>'+last2+'</em>';
+  const sub=mk('p','contact-sub reveal d1',c.subheading);
+  const acts=mk('div','contact-actions reveal d2');
+  const b1=mk('a','btn-primary',c.ctaLabel);b1.href=c.ctaHref;b1.target='_blank';
+  const b2=mk('a','btn-outline','✉ '+c.email);b2.href='mailto:'+c.email;
+  acts.append(b1,b2);
+  const sl=socialLinks();sl.classList.add('reveal','d3');
+  wrap.append(hdg,sub,acts,sl);
+}
+
+function buildFooter(){
+  const wrap=document.getElementById('footer-inner');
+  const parts=D.name.split(' ');
+  const logo=mk('a','footer-logo');logo.href='#hero';
+  logo.innerHTML=parts.slice(0,-1).join(' ')+' <span>'+parts[parts.length-1]+'.</span>';
+  const copy=mk('p','footer-copy',D.footer.copyright);
+  wrap.append(logo,copy,socialLinks());
+}
+
+function initReveal(){
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+}
+
+function initCursor(){
+  if(window.matchMedia('(pointer:coarse)').matches)return;
+  const dot=mk('div','cursor-dot'),ring=mk('div','cursor-ring');
+  document.body.append(dot,ring);
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.cssText=`left:${mx}px;top:${my}px`;},{passive:true});
+  (function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.cssText=`left:${rx}px;top:${ry}px`;requestAnimationFrame(loop);})();
+}
+
+// Boot
+buildNav();
+buildHero();
+buildAbout();
+buildExperience();
+buildProjects();
+buildSkills();
+buildTestimonial();
+buildContact();
+buildFooter();
+initReveal();
+initCursor();
+</script>
+</body>
+</html>
