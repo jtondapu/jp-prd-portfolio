@@ -132,6 +132,10 @@ section{position:relative;z-index:1}
 .exp-card:hover{border-color:var(--border-hover);transform:translateY(-2px)}
 .exp-card.open{border-color:rgba(200,241,53,.3)}
 .exp-header{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.exp-meta{display:flex;gap:1rem;align-items:flex-start;flex:1}
+.exp-logo{width:40px;height:40px;border-radius:6px;background:var(--bg-card-alt);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden}
+.exp-logo img{width:100%;height:100%;object-fit:cover}
+.exp-details{flex:1}
 .exp-company{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--text-primary);margin-bottom:.25rem}
 .exp-role{font-size:.88rem;color:var(--accent);font-weight:500;margin-bottom:.4rem}
 .exp-info{font-size:.75rem;color:var(--text-muted);display:flex;gap:1.25rem;flex-wrap:wrap}
@@ -517,7 +521,10 @@ function buildExperience(){
     const card=mk('div','exp-card reveal');card.style.transitionDelay=(i*.1)+'s';
     const hdr=mk('div','exp-header');
     const meta=mk('div','exp-meta');
-    meta.innerHTML=`<div class="exp-company">${exp.company}</div><div class="exp-role">${exp.role}</div><div class="exp-info"><span>📍 ${exp.location}</span><span>📅 ${exp.period}</span></div>`;
+    if(exp.logo){const logo=mk('div','exp-logo');const img=mk('img');img.src=exp.logo;img.alt=exp.company+' logo';logo.append(img);meta.append(logo);}
+    const details=mk('div','exp-details');
+    details.innerHTML=`<div class="exp-company">${exp.company}</div><div class="exp-role">${exp.role}</div><div class="exp-info"><span>📍 ${exp.location}</span><span>📅 ${exp.period}</span></div>`;
+    meta.append(details);
     const tog=mk('div','exp-toggle','+');
     hdr.append(meta,tog);
     const buls=mk('div','exp-bullets');
