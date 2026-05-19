@@ -31,6 +31,20 @@
   --ease:         cubic-bezier(.4,0,.2,1);
   --max-w:        1180px;
 }
+
+/* light mode */
+body.light-mode {
+  --bg:           #ffffff;
+  --bg-card:      #f5f5f5;
+  --bg-card-alt:  #eeeeee;
+  --border:       rgba(0,0,0,0.08);
+  --border-hover: rgba(0,0,0,0.16);
+  --accent:       #8ba000;
+  --accent-dim:   rgba(139,160,0,0.12);
+  --text-primary: #1a1a1a;
+  --text-secondary:#666666;
+  --text-muted:   #999999;
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text-primary);font-family:var(--font-body);font-weight:300;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
@@ -60,6 +74,8 @@ section{position:relative;z-index:1}
 .nav-links a:hover{color:var(--text-primary)}
 .nav-cta{background:var(--accent);color:#0a0a0a!important;font-family:var(--font-display);font-weight:700;font-size:.78rem;padding:.5rem 1.2rem;border-radius:100px;transition:opacity .25s,transform .25s!important}
 .nav-cta:hover{opacity:.85;transform:translateY(-1px)}
+.theme-toggle{background:none;border:1px solid var(--border);width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text-primary);font-size:1.1rem;transition:border-color .25s,background .25s;margin-left:.5rem}
+.theme-toggle:hover{border-color:var(--border-hover);background:var(--accent-dim)}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
 .nav-hamburger span{display:block;width:22px;height:2px;background:var(--text-primary);border-radius:2px;transition:.3s}
 #nav-mobile{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,10,10,.97);backdrop-filter:blur(16px);border-top:1px solid var(--border)}
@@ -214,6 +230,7 @@ footer{padding:1.75rem 0;border-top:1px solid var(--border);position:relative;z-
     <div class="nav-inner">
       <a class="nav-logo" href="#hero" id="nav-logo-el"></a>
       <nav class="nav-links" id="nav-links-el"></nav>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode">🌙</button>
       <a class="nav-cta" id="nav-cta-el" target="_blank"></a>
       <button class="nav-hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -591,6 +608,22 @@ function initCursor(){
   (function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.cssText=`left:${rx}px;top:${ry}px`;requestAnimationFrame(loop);})();
 }
 
+// Theme toggle
+function initThemeToggle(){
+  const btn=document.getElementById('theme-toggle');
+  const savedTheme=localStorage.getItem('theme')||'dark';
+  if(savedTheme==='light'){
+    document.body.classList.add('light-mode');
+    btn.textContent='☀️';
+  }
+  btn.addEventListener('click',()=>{
+    document.body.classList.toggle('light-mode');
+    const isLight=document.body.classList.contains('light-mode');
+    btn.textContent=isLight?'☀️':'🌙';
+    localStorage.setItem('theme',isLight?'light':'dark');
+  });
+}
+
 // Boot
 buildNav();
 buildHero();
@@ -603,6 +636,7 @@ buildContact();
 buildFooter();
 initReveal();
 initCursor();
+initThemeToggle();
 </script>
 </body>
 </html>
